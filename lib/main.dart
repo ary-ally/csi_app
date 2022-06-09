@@ -6,7 +6,7 @@ void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     home: AnimatedSplashScreen(
-        backgroundColor: Colors.deepPurple.shade400,
+        backgroundColor: Colors.white,
         splashIconSize: 400,
         splash: Container(
           child: Image.asset(
