@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +14,13 @@ class home_1 extends StatefulWidget {
 }
 
 class _home_1State extends State<home_1> {
+  final urlImages = [
+    'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'
+    'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
+    'https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
+    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
+    'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
+  ];
   int index = 2;
   @override
   Widget build(BuildContext context) {
@@ -22,14 +32,150 @@ class _home_1State extends State<home_1> {
       Icon(Icons.person, size: 30),
     ];
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        leading: BackButton(
-          color: Colors.black,
-        ),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+      drawer: Drawer(
+          child: Container(
+            color: Color(0xffD3D0FF),
+            child: Column(
+              children: [
+                Expanded(
+                  child: ListView(
+
+                    children: [
+                      // const SizedBox(height: 30,),
+                      ListTile(
+                        trailing: Icon(Icons.clear_rounded,color:Color(0xff4F2BD4) ,),
+                        onTap:(){
+                          Navigator.of(context).pop();},
+                      ),
+                      ListTile(leading:Icon(Icons.home,color: Colors.black,),
+
+                        title: Text("Home",style: TextStyle(fontSize: 20),),
+
+                      ),
+                      ListTile(leading:Icon(Icons.blur_circular_sharp,color: Colors.black,),
+                        title: Text("Our Features",style: TextStyle(fontSize: 20),),
+
+                      ),
+                      ListTile(leading:Icon(Icons.miscellaneous_services,color: Colors.black,),
+                        title: Text("Services",style: TextStyle(fontSize: 20),),
+                      ),
+                      ExpansionTile(leading:const Icon(Icons.all_inbox_sharp,color: Colors.black,),
+                        textColor: Color(0xff4B2EBD),
+
+
+                        title: Text("What we do?",style: TextStyle(fontSize: 20),),
+                        children: [
+                          ExpansionTile(
+                            iconColor:Colors.black,
+                            textColor: Color(0xff4B2EBD),
+                            title: Center(child: Text("Events",style: TextStyle(fontSize: 20,fontWeight: FontWeight.normal),)),
+                            children: [
+                              ListTile(
+
+                                title: Center(child: Text("Cine",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w300),)),
+                              ),
+                              ListTile(
+
+                                title: Center(child: Text("Render",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w300),)),
+                              ),
+                            ],
+                          ),
+                          ExpansionTile(
+                            iconColor:Colors.black,
+                            textColor: Color(0xff4B2EBD),
+                            title: Center(child: Text("Workshop",style: TextStyle(fontSize: 20,fontWeight: FontWeight.normal),)),
+                            children: [
+                              ListTile(
+
+                                title: Center(child: Text("Cine",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w300),)),
+                              ),
+                              ListTile(
+
+                                title: Center(child: Text("Render",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w300),)),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      ExpansionTile(
+                        title: Text("Our Team",style: TextStyle(fontSize: 20),),
+                        textColor: Color(0xff4B2EBD),
+                        leading: Icon(Icons.people,color: Colors.black,),
+                        children: [
+                          ListTile(
+                            title: Center(child: Text("Second Year",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w300),)),
+                          ),
+                          ListTile(
+                            title: Center(child: Text("Third Year",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w300),)),
+                          ),
+                          ListTile(
+                            title: Center(child: Text("Fourth Year",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w300),)),
+                          )
+
+                        ],
+                      ),
+                      ListTile(leading:Icon(Icons.people_alt_outlined,color: Colors.black,),
+                        title: Text("Our Alumni ",style: TextStyle(fontSize: 20),),
+                      ),
+                      ListTile(leading:Icon(Icons.add_to_photos_rounded,color: Colors.black,),
+                        title: Text("Join Us ",style: TextStyle(fontSize: 20),),
+                      ),
+                      ListTile(leading:Icon(Icons.question_answer,color: Colors.black,),
+                        title: Text("Contact Us ",style: TextStyle(fontSize: 20),),
+                      ),
+                      ListTile(leading:Icon(Icons.verified_user_rounded,color: Colors.black,),
+                        title: Text("Verify Certificate ",style: TextStyle(fontSize: 20),),
+                      ),
+                      ListTile(leading:Icon(Icons.info_rounded,color: Colors.black,),
+                        title: Text("About Us ",style: TextStyle(fontSize: 20),),
+                      ),
+
+
+                    ],
+                  ),
+
+                ),
+
+                Container(
+                  decoration: BoxDecoration(border: Border.all(color: Color(0xff4F2BD4))),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.web,color: Colors.black,
+
+                    ),
+                    title: Text(
+                      'Website',
+                      style: TextStyle(
+
+                        fontSize: 20,
+                        color: Colors.black,
+                      ),
+                    ),
+                    trailing: Icon(
+                      Icons.launch,color: Colors.black,
+
+                    ),
+                  ),)
+              ],
+            ),
+
+          )
       ),
+      appBar: AppBar(
+        toolbarHeight: 60,
+        backgroundColor: Color(0xff684BD8),
+        elevation: 0.0,
+        foregroundColor: Colors.transparent,
+        iconTheme: IconThemeData(color:  Color(0xffD3D0FF)),
+      ),
+      extendBodyBehindAppBar: true,
+      // appBar: AppBar(
+      //   leading: BackButton(
+      //     color: Colors.black,
+      //   ),
+      //   backgroundColor: Colors.transparent,
+      //   elevation: 0,
+      // ),
       backgroundColor: Colors.white,
       bottomNavigationBar: Theme(
         data: Theme.of(context)
@@ -38,20 +184,21 @@ class _home_1State extends State<home_1> {
           color: const Color(0xff9d97f4),
           buttonBackgroundColor: Color(0xff4E2AD3),
           backgroundColor: Colors.transparent,
-          height: 60,
+          height: 50,
           animationCurve: Curves.easeInOut,
           animationDuration: Duration(milliseconds: 300),
           index: index,
           items: items,
         ),
       ),
-      body: Container(
-        decoration: BoxDecoration(
-            image: DecorationImage(
-          image: AssetImage('assets/home.png'),
-          fit: BoxFit.cover,
-        )),
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+
+        child: Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+            image: AssetImage('assets/home.png'),
+            fit: BoxFit.cover,
+          )),
           child: Column(
             // children: <Widget>[
             //   Padding(
@@ -60,65 +207,79 @@ class _home_1State extends State<home_1> {
             //   )
             // ],
             children: [
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 320, top: 20),
-                    child: Image.asset(
-                      'assets/csi logo.png',
-                      height: 66,
-                      width: 67,
-                    ),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 18),
-                child: Row(
-                  children: [
-                    Text(
-                      'Computer',
-                      style: TextStyle(
-                        fontFamily: 'Montserrat',
-                        fontSize: 50,
-                        fontWeight: FontWeight.w600,
+              SizedBox(height: 100,),
+              // Row(
+              //   children: [
+              //     Padding(
+              //       padding: const EdgeInsets.only(left: 320, top: 20),
+              //       child: Image.asset(
+              //         'assets/csi logo.png',
+              //         height: 66,
+              //         width: 67,
+              //       ),
+              //     ),
+              //   ],
+              // ),
+             Row(
+               children: [
+                 Padding(
+                   padding: const EdgeInsets.only(left: 20),
+                   child: Column(
+                     children: [
+                       Row(
+                            children: [
+                              Text(
+                                'Computer',
+                                style: TextStyle(
+                                  fontFamily: 'Montserrat',
+                                  fontSize: 45,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                       Row(
+                        children: [
+                          Text(
+                            'Society',
+                            style: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontSize: 45,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 18),
-                child: Row(
-                  children: [
-                    Text(
-                      'Society',
-                      style: TextStyle(
-                        fontFamily: 'Montserrat',
-                        fontSize: 50,
-                        fontWeight: FontWeight.w600,
+                     Row(
+                        children: [
+                          Text(
+                            'Of India',
+                            style: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontSize: 45,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
-                ),
-              ),
+                    ],
+                   ),
+                 ),
+                 Column(
+                   children: [
+                     SizedBox(
+                       child: Image.asset(
+                         'assets/hat.png',
+                         height: 160,
+                         width: 161,
+                       ),
+                     )
+                   ],
+                 )
+               ],
+             ),
               Padding(
-                padding: const EdgeInsets.only(left: 18),
-                child: Row(
-                  children: [
-                    Text(
-                      'Of India',
-                      style: TextStyle(
-                        fontFamily: 'Montserrat',
-                        fontSize: 50,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10, left: 24),
+                padding: const EdgeInsets.only(top: 10, left: 20),
                 child: Row(
                   children: [
                     Text(
@@ -133,7 +294,7 @@ class _home_1State extends State<home_1> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 20, left: 24),
+                padding: const EdgeInsets.only(top: 20, left: 20),
                 child: Row(
                   children: [
                     Text(
@@ -152,19 +313,19 @@ class _home_1State extends State<home_1> {
                               textStyle: TextStyle(
                                   fontSize: 30,
                                   fontFamily: 'Montserrat',
-                                  color: Colors.blue),
+                                  color: Color(0xff4B2EBD)),
                               speed: Duration(milliseconds: 100)),
                           TypewriterAnimatedText('Share',
                               textStyle: TextStyle(
                                   fontSize: 30,
                                   fontFamily: 'Montserrat',
-                                  color: Colors.blue),
+                                  color: Color(0xff4B2EBD)),
                               speed: Duration(milliseconds: 100)),
                           TypewriterAnimatedText('Innovate',
                               textStyle: TextStyle(
                                   fontSize: 30,
                                   fontFamily: 'Montserrat',
-                                  color: Colors.blue),
+                                  color: Color(0xff4B2EBD)),
                               speed: Duration(milliseconds: 100)),
                         ],
                       ),
@@ -173,18 +334,19 @@ class _home_1State extends State<home_1> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 30),
-                child: Column(
-                  children: <Widget>[
+                padding: const EdgeInsets.only(top: 40),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
                     SizedBox(
-                      width: 350,
-                      height: 450,
+                      width: 200,
+                      height: 75,
                       child: Card(
+                          color: Color(0xff4B2EBD),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(40), // if you need this
-                            side: BorderSide(
-                              color: Colors.grey.withOpacity(0.2),
-                            ),
+                            borderRadius: BorderRadius.all(
+                               Radius.circular(30),
+                               ),
                           ),
                           child: Column(
                         children: [
@@ -194,39 +356,42 @@ class _home_1State extends State<home_1> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'About Us',
-                                  style: TextStyle(fontSize: 30),
+                                  'ABOUT US',
+                                  style: TextStyle(fontSize: 30,fontFamily: 'Montserrat',color: Colors.white),
                                 )
                               ],
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 20,left: 10),
-                            child: SizedBox(
-                              width: 300,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                      'The COMPUTER SOCIETY OF INDIA (acronym as CSI) was '
-                                          'formed in the year 1965. Since its inception, '
-                                          'CSI has been paving the way for the IT industry '
-                                          'to advance in the right direction. By indulging '
-                                          'within itself most famous IT leaders, brilliant '
-                                          'scientists and dedicated academicians, CSI has been '
-                                          'highly successful in setting highest benchmarks in '
-                                          'the field of professional competence with high quality commitment.',
-                                  style: TextStyle(
-                                    fontSize: 20
-                                  ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          )
                         ],
                       )),
                     )
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 30),
+                child: Column(
+                  children: [
+                    Container(
+                      color : Colors.white.withOpacity(0.5),
+                      child: SizedBox(
+                        height: 400,
+                        width: 350,
+                        child: Text('The COMPUTER SOCIETY OF INDIA (acronym as CSI) was '
+                                    'formed in the year 1965. Since its inception, '
+                                       'CSI has been paving the way for the IT industry '
+                                      'to advance in the right direction. By indulging '
+                                     'within itself most famous IT leaders, brilliant '
+                                    'scientists and dedicated academicians, CSI has been '
+                                        'highly successful in setting highest benchmarks in '
+                            'the field of professional competence with high quality commitment.',
+                        style: TextStyle(fontSize: 20,fontFamily: 'Montserrat',letterSpacing: 1.5,wordSpacing: 5,),
+
+                        ),
+
+                      ),
+                    ),
+                    SizedBox(height: 30,)
                   ],
                 ),
               )
@@ -236,4 +401,5 @@ class _home_1State extends State<home_1> {
       ),
     );
   }
+
 }
