@@ -229,7 +229,7 @@ class _home_1State extends State<home_1> {
                        Row(
                             children: [
                               Text(
-                                'Computer',
+                                'Computer \nSociety \nOf India',
                                 style: TextStyle(
                                   fontFamily: 'Montserrat',
                                   fontSize: 45,
@@ -238,30 +238,30 @@ class _home_1State extends State<home_1> {
                               ),
                             ],
                           ),
-                       Row(
-                        children: [
-                          Text(
-                            'Society',
-                            style: TextStyle(
-                              fontFamily: 'Montserrat',
-                              fontSize: 45,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ],
-                      ),
-                     Row(
-                        children: [
-                          Text(
-                            'Of India',
-                            style: TextStyle(
-                              fontFamily: 'Montserrat',
-                              fontSize: 45,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ],
-                      ),
+                      //  Row(
+                      //   children: [
+                      //     Text(
+                      //       'Society',
+                      //       style: TextStyle(
+                      //         fontFamily: 'Montserrat',
+                      //         fontSize: 45,
+                      //         fontWeight: FontWeight.w600,
+                      //       ),
+                      //     ),
+                      //   ],
+                      // ),
+                     // Row(
+                     //    children: [
+                     //      Text(
+                     //        'Of India',
+                     //        style: TextStyle(
+                     //          fontFamily: 'Montserrat',
+                     //          fontSize: 45,
+                     //          fontWeight: FontWeight.w600,
+                     //        ),
+                     //      ),
+                     //    ],
+                     //  ),
                     ],
                    ),
                  ),
@@ -385,6 +385,7 @@ class _home_1State extends State<home_1> {
                                     'scientists and dedicated academicians, CSI has been '
                                         'highly successful in setting highest benchmarks in '
                             'the field of professional competence with high quality commitment.',
+                        textAlign: TextAlign.justify,
                         style: TextStyle(fontSize: 20,fontFamily: 'Montserrat',letterSpacing: 1.5,wordSpacing: 5,),
 
                         ),
